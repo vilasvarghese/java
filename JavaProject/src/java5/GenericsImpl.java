@@ -1,15 +1,13 @@
 package java5;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GenericsImpl {
 
 	public static void main(String[] args) {
-		MathOperation<Integer> m = new MathOperation();
-		m.square(28);
-		
-		MathOperation<Float> m1 = new MathOperation();
-		m1.square(28f);
+		MathOperation m1 = new MathOperation();
+		m1.square(29f);
 		
 		Container<Integer> c = new Container<>();
 		c.print(30);
@@ -23,7 +21,12 @@ public class GenericsImpl {
 		aList.add(3);
 		c1.print(aList);
 		c1.printSquare(5);
-	}
+		
+		WildCardUsage w = new WildCardUsage();
+		List<Integer> intList = new ArrayList<Integer>();
+		w.insertElements(intList, 2, 3);
+		w.processElements(intList);
+  	}
 	
 }
 
@@ -43,8 +46,8 @@ class Container<A>{
 class Container1<T extends Number>{
 	
 	public void printSquare(T no){
-		int i = (int)no;
-		System.out.println(i * i);
+		
+		System.out.println(no);
 	}
 	
 	public void print(ArrayList<? extends T> myList) {
@@ -52,10 +55,46 @@ class Container1<T extends Number>{
 	}
 }
 
-class MathOperation<C extends Number>{
-	public void square(C a) {
+class MathOperation{
+	public <C extends Number> void square(C a) {
 		//int b = (int)a;
 		//return (int)b*b;
 		System.out.println(a);
+	}
+}
+
+/*
+Three ways to define a collection (variable) using generic wildcards.
+These are:
+
+	List<?>           listUknown = new ArrayList<A>();
+	List<? extends A> listUknown = new ArrayList<A>();
+	List<? super   A> listUknown = new ArrayList<A>();
+
+
+
+Unknown Wildcard
+	List<?> means a list typed to an unknown type.
+		Rarely used and not very effective.
+
+extends Wildcard 
+	List<? extends A>
+	
+super Wildcard	
+	List<? super A>
+
+*/
+
+class WildCardUsage{
+	public void processElements(List<? extends Number> elements){
+	   for(Number n : elements){
+		  System.out.print(n + " " );
+	   }
+	   System.out.println();
+	}
+	
+	public static void insertElements(List<? super Integer> list, Integer a, Integer b){
+		list.add(a);
+		list.add(b);
 	}
 }

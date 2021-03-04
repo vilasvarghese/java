@@ -35,8 +35,6 @@ public class LambdaImpl {
 		});
 
 		l.cook(s -> System.out.println("from cook annoymous class"));
-	
-		List<String> list = new ArrayList<String>();
 	}
 	
 	public void cook(I1 i1) {
