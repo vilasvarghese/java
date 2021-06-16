@@ -1,0 +1,2 @@
+Variables are statically bound
+Methods are dynamically bound.

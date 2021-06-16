@@ -1,0 +1,19 @@
+/*
+ * Private: 
+ ********** 	Accessible only within the class. 
+ ********** 	Cannot be accessed from outside the class.
+ ******************************************************
+Default: 
+********** 		Accessible from the same package. 
+*********** 	Cannot be accessed from outside the package. 
+*********** 	If you do not specify any access level, it will be the default.
+******************************************************
+Protected: 
+********** 		Accessible within the package and outside the package through child class. 
+*********** 	If you do not make the child class, it cannot be accessed from outside the package.
+******************************************************
+Public: 
+********** 		Accessible everywhere. 
+********** 		Can be accessed from within the class, outside the class, within the package and outside the package.
+******************************************************
+ */
